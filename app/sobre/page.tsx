@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 export default function SobrePage() {
   return (
     <div className="pt-20">
-      <div className="relative h-48 w-full overflow-hidden">
-        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black" />
+      <div className="relative h-72 w-full overflow-hidden">
+        <img src="/img/Bertuol-11.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.35}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.2), rgba(10,10,10,1))"}} />
       </div>
       <section className="section-padding bg-cobore-surface border-b border-cobore-border">
         <div className="container-cobore text-center">

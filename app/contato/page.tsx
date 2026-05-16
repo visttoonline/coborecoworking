@@ -25,6 +25,10 @@ export default function ContatoPage() {
 
   return (
     <div className="pt-20">
+      <div className="relative h-64 w-full overflow-hidden">
+        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.35}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,1))"}} />
+      </div>
       <section className="section-padding bg-cobore-surface border-b border-cobore-border">
         <div className="container-cobore text-center">
           <p className="label-gold mb-4">Contato</p>

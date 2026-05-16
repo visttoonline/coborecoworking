@@ -22,9 +22,9 @@ const inclusos = [
 export default function PlanosPage() {
   return (
     <div className="pt-20">
-      <div className="relative h-48 w-full overflow-hidden">
-        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black" />
+      <div className="relative h-72 w-full overflow-hidden">
+        <img src="/img/Bertuol-12.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.35}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.2), rgba(10,10,10,1))"}} />
       </div>
       <section className="section-padding bg-cobore-surface border-b border-cobore-border">
         <div className="container-cobore text-center">
@@ -37,6 +37,19 @@ export default function PlanosPage() {
 
       {/* Calculadora */}
       <Calculadora />
+
+      {/* Grid de fotos */}
+      <div className="grid grid-cols-3 gap-1 w-full" style={{height:'280px'}}>
+        <div className="overflow-hidden">
+          <img src="/img/Bertuol-11.jpg" alt="" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div className="overflow-hidden">
+          <img src="/img/Bertuol-9.jpg" alt="" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" />
+        </div>
+        <div className="overflow-hidden">
+          <img src="/img/Bertuol-1.jpg" alt="" className="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-500" />
+        </div>
+      </div>
 
       {/* O que está incluso em tudo */}
       <section className="section-padding bg-cobore-surface">
