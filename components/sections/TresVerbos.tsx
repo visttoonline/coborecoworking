@@ -43,6 +43,7 @@ function VerbCard({
   title,
   description,
   cta,
+  image,
   index,
 }: (typeof verbos)[0] & { index: number; image: string }) {
   const ref = useRef(null)
