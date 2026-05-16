@@ -18,7 +18,7 @@ export function Hero() {
           priority
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-cobore-black/60 via-cobore-black/40 to-cobore-black z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-cobore-black/80 via-cobore-black/60 to-cobore-black z-10" />
       </div>
 
       {/* Content */}
