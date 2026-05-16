@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import { Bricolage_Grotesque } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { Footer } from '@/components/Footer'
 import { WhatsAppButton } from '@/components/WhatsAppButton'
 
-const geist = Geist({
+const geist = Inter({
   subsets: ['latin'],
   variable: '--font-geist',
 })
