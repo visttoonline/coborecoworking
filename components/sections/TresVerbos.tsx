@@ -13,7 +13,7 @@ const verbos = [
     icon: Monitor,
     title: 'O espaço que coloca você em modo foco.',
     description:
-      'Estação ergonômica, Wi-Fi 800Mb de fibra, cozinha completa, área verde para respirar e uma comunidade que não incomoda. Tudo o que home office nunca vai ter.',
+      'Climatizada, com impressora compartilhada e estações equipadas com tomadas para você trabalhar com fluidez. Layout funcional que favorece foco, produtividade e interações na medida certa.',
     cta: { label: 'Reservar estação', href: '/reservar?espaco=estacao' },
     image: '/img/open-space-6.jpg',
   },
@@ -22,7 +22,7 @@ const verbos = [
     icon: Handshake,
     title: 'Sua primeira impressão começa antes de você abrir a boca.',
     description:
-      'Sala de reunião fechada, recepcionista que anuncia seus clientes, cafezinho premium em bandeja — por R$35/hora. A percepção que você vende antes de falar.',
+      'A experiência começa aqui. Nossa recepção acolhe seus clientes com revistas atualizadas e cafezinho enquanto a recepcionista anuncia sua chegada. A primeira impressão é sempre profissional, organizada e calorosa.',
     cta: { label: 'Reservar sala', href: '/reservar?espaco=sala-reuniao' },
     image: '/img/recepcao.jpg',
   },
