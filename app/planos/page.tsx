@@ -22,6 +22,10 @@ const inclusos = [
 export default function PlanosPage() {
   return (
     <div className="pt-20">
+      <div className="relative h-48 w-full overflow-hidden">
+        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-black" />
+      </div>
       <section className="section-padding bg-cobore-surface border-b border-cobore-border">
         <div className="container-cobore text-center">
           <p className="label-gold mb-4">Planos e Preços</p>
