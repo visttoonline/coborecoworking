@@ -29,8 +29,8 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         scrolled
-          ? 'bg-cobore-black/95 backdrop-blur-md border-b border-cobore-border'
-          : 'bg-transparent'
+          ? 'bg-cobore-black/98 backdrop-blur-md border-b border-cobore-border'
+          : 'bg-cobore-black/75 backdrop-blur-sm border-b border-cobore-border/40'
       )}
     >
       <div className="container-cobore">
