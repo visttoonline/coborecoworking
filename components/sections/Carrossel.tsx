@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import Image from 'next/image'
 
 const fotos = [
@@ -21,59 +21,70 @@ const fotos = [
 
 export function Carrossel() {
   const [current, setCurrent] = useState(0)
-  const [animating, setAnimating] = useState(false)
-  const [direction, setDirection] = useState<'left' | 'right'>('right')
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [offset, setOffset] = useState(0)
+  const [transitioning, setTransitioning] = useState(false)
 
-  function goTo(index: number, dir: 'left' | 'right') {
-    if (animating) return
-    setDirection(dir)
-    setAnimating(true)
+  const goNext = useCallback(() => {
+    if (transitioning) return
+    setTransitioning(true)
+    setOffset(-100)
     setTimeout(() => {
-      setCurrent(index)
-      setAnimating(false)
-    }, 500)
-  }
+      setCurrent(c => (c + 1) % fotos.length)
+      setOffset(0)
+      setTransitioning(false)
+    }, 600)
+  }, [transitioning])
 
-  function next() {
-    goTo((current + 1) % fotos.length, 'right')
-  }
-
-  function prev() {
-    goTo((current - 1 + fotos.length) % fotos.length, 'left')
-  }
+  const goPrev = useCallback(() => {
+    if (transitioning) return
+    setTransitioning(true)
+    setOffset(100)
+    setTimeout(() => {
+      setCurrent(c => (c - 1 + fotos.length) % fotos.length)
+      setOffset(0)
+      setTransitioning(false)
+    }, 600)
+  }, [transitioning])
 
   useEffect(() => {
-    timerRef.current = setTimeout(next, 4000)
-    return () => { if (timerRef.current) clearTimeout(timerRef.current) }
-  }, [current])
+    const t = setInterval(goNext, 4500)
+    return () => clearInterval(t)
+  }, [goNext])
+
+  const prev = (current - 1 + fotos.length) % fotos.length
+  const next = (current + 1) % fotos.length
 
   return (
-    <section className="relative w-full overflow-hidden bg-cobore-black" style={{height: '520px'}}>
-      {/* Imagens */}
+    <section className="relative w-full bg-cobore-black overflow-hidden" style={{height: '540px'}}>
+
+      {/* Foto anterior (entrando da esquerda quando vai para prev) */}
       <div
-        className="absolute inset-0 transition-transform duration-500 ease-in-out"
+        className="absolute inset-0"
         style={{
-          transform: animating
-            ? direction === 'right' ? 'translateX(-100%)' : 'translateX(100%)'
-            : 'translateX(0)',
+          transform: `translateX(${offset === 100 ? 0 : -100}%)`,
+          transition: transitioning ? 'transform 0.6s cubic-bezier(0.77,0,0.18,1)' : 'none',
         }}
       >
-        <Image
-          src={fotos[current]}
-          alt=""
-          fill
-          className="object-cover object-center"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-cobore-black/30" />
+        <Image src={fotos[offset > 0 ? prev : next]} alt="" fill className="object-cover object-center" sizes="100vw" />
+        <div className="absolute inset-0 bg-cobore-black/25" />
+      </div>
+
+      {/* Foto atual */}
+      <div
+        className="absolute inset-0"
+        style={{
+          transform: `translateX(${offset}%)`,
+          transition: transitioning ? 'transform 0.6s cubic-bezier(0.77,0,0.18,1)' : 'none',
+        }}
+      >
+        <Image src={fotos[current]} alt="" fill className="object-cover object-center" sizes="100vw" priority />
+        <div className="absolute inset-0 bg-cobore-black/25" />
       </div>
 
       {/* Seta esquerda */}
       <button
-        onClick={prev}
-        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-cobore-gold/50 text-cobore-gold hover:bg-cobore-gold hover:text-cobore-black transition-all duration-200"
+        onClick={goPrev}
+        className="absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-cobore-gold/60 text-cobore-gold text-xl hover:bg-cobore-gold hover:text-cobore-black transition-all duration-200"
         aria-label="Anterior"
       >
         ←
@@ -81,8 +92,8 @@ export function Carrossel() {
 
       {/* Seta direita */}
       <button
-        onClick={next}
-        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-cobore-gold/50 text-cobore-gold hover:bg-cobore-gold hover:text-cobore-black transition-all duration-200"
+        onClick={goNext}
+        className="absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center border border-cobore-gold/60 text-cobore-gold text-xl hover:bg-cobore-gold hover:text-cobore-black transition-all duration-200"
         aria-label="Próximo"
       >
         →
@@ -93,8 +104,8 @@ export function Carrossel() {
         {fotos.map((_, i) => (
           <button
             key={i}
-            onClick={() => goTo(i, i > current ? 'right' : 'left')}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-cobore-gold w-4' : 'bg-white/40'}`}
+            onClick={() => { if (!transitioning) { setOffset(i > current ? -100 : 100); setTimeout(() => { setCurrent(i); setOffset(0); setTransitioning(false) }, 600); setTransitioning(true) } }}
+            className={`h-1.5 rounded-full transition-all duration-300 ${i === current ? 'bg-cobore-gold w-6' : 'bg-white/40 w-1.5'}`}
             aria-label={`Foto ${i + 1}`}
           />
         ))}
