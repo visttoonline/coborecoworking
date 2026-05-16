@@ -44,7 +44,7 @@ function VerbCard({
   description,
   cta,
   index,
-}: (typeof verbos)[0] & { index: number }) {
+}: (typeof verbos)[0] & { index: number; image: string }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
