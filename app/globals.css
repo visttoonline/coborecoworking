@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4%;
+    --foreground: 60 5% 96%;
+    --primary: 40 50% 59%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 60 5% 96%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 54%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 60 5% 96%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 40 50% 59%;
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-cobore-black text-cobore-offwhite font-sans antialiased;
+  }
+
+  ::selection {
+    background-color: #C9A961;
+    color: #0A0A0A;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
+  ::-webkit-scrollbar-thumb { background: #C9A961; border-radius: 3px; }
+}
+
+@layer components {
+  .gold-gradient {
+    background: linear-gradient(135deg, #C9A961 0%, #D4B574 50%, #C9A961 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 bg-cobore-gold text-cobore-black font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-cobore-gold-hover hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 border border-cobore-gold text-cobore-gold font-semibold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-cobore-gold hover:text-cobore-black;
+  }
+
+  .section-padding {
+    @apply py-section-mobile md:py-section-desktop;
+  }
+
+  .container-cobore {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card-surface {
+    @apply bg-cobore-surface border border-cobore-border;
+  }
+
+  .label-gold {
+    @apply text-cobore-gold text-xs font-semibold uppercase tracking-[0.2em];
+  }
+}
