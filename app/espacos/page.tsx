@@ -58,9 +58,10 @@ const espacos = [
 export default function EspacosPage() {
   return (
     <div className="pt-20">
-      {/* Header */}
-      <section className="section-padding bg-cobore-surface border-b border-cobore-border">
-        <div className="container-cobore text-center">
+      <div className="relative w-full overflow-hidden" style={{height:"420px"}}>
+        <img src="/img/Bertuol-14.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.45}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.7))"}} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <p className="label-gold mb-4">Espaços</p>
           <h1 className="font-display text-display-xl text-cobore-offwhite max-w-2xl mx-auto">
             Cada espaço pensado para uma função.
@@ -69,7 +70,7 @@ export default function EspacosPage() {
             Do foco individual à reunião com cliente, da sessão de fotos ao podcast — tudo no mesmo endereço no centro de Pelotas.
           </p>
         </div>
-      </section>
+      </div>
 
       {/* Grid */}
       <section className="section-padding bg-cobore-black">

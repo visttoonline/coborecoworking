@@ -25,12 +25,10 @@ export default function ContatoPage() {
 
   return (
     <div className="pt-20">
-      <div className="relative h-64 w-full overflow-hidden">
-        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.35}} />
-        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,1))"}} />
-      </div>
-      <section className="section-padding bg-cobore-surface border-b border-cobore-border">
-        <div className="container-cobore text-center">
+      <div className="relative w-full overflow-hidden" style={{height:"420px"}}>
+        <img src="/img/hero.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.45}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.7))"}} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <p className="label-gold mb-4">Contato</p>
           <h1 className="font-display text-display-xl text-cobore-offwhite max-w-xl mx-auto">
             Fale com a gente.
@@ -39,7 +37,7 @@ export default function ContatoPage() {
             Dúvidas, visitas, reservas ou propostas — escolha o canal mais conveniente.
           </p>
         </div>
-      </section>
+      </div>
 
       <section className="section-padding bg-cobore-black">
         <div className="container-cobore">

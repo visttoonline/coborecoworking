@@ -9,12 +9,10 @@ export const metadata: Metadata = {
 export default function SobrePage() {
   return (
     <div className="pt-20">
-      <div className="relative h-72 w-full overflow-hidden">
-        <img src="/img/Bertuol-11.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.35}} />
-        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.2), rgba(10,10,10,1))"}} />
-      </div>
-      <section className="section-padding bg-cobore-surface border-b border-cobore-border">
-        <div className="container-cobore text-center">
+      <div className="relative w-full overflow-hidden" style={{height:"420px"}}>
+        <img src="/img/Bertuol-11.jpg" alt="" className="w-full h-full object-cover object-center" style={{opacity:0.45}} />
+        <div className="absolute inset-0" style={{background:"linear-gradient(to bottom, rgba(10,10,10,0.5), rgba(10,10,10,0.7))"}} />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
           <p className="label-gold mb-4">Sobre o COBORE</p>
           <h1 className="font-display text-display-xl text-cobore-offwhite max-w-2xl mx-auto">
             Mais que uma mesa de trabalho.
@@ -23,7 +21,7 @@ export default function SobrePage() {
             Produzir, receber e impressionar.
           </p>
         </div>
-      </section>
+      </div>
 
       <section className="section-padding bg-cobore-black">
         <div className="container-cobore max-w-3xl">
