@@ -37,9 +37,7 @@ export function Navbar() {
         <nav className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-display text-2xl font-bold gold-gradient tracking-tight">
-              COBORE
-            </span>
+            <img src="/img/logo-cobore.png" alt="COBORE" className="h-10 w-auto" />
           </Link>
 
           {/* Desktop links */}
